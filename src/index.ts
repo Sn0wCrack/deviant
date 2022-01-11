@@ -1,6 +1,6 @@
-import got, { HTTPError } from "got/dist/source";
+import got from "got/dist/source";
 import Grant from "./Grant";
-import { GeneralError, AuthorizationSuccess, PlaceboResponse } from "../types/Responses";
+import { AuthorizationSuccess, PlaceboResponse } from "../types/Responses";
 import Deviantions from "./Requests/Deviations";
 
 const BASE_URL = 'https://www.deviantart.com/api/v1/oauth2';
