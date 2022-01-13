@@ -51,7 +51,7 @@ export interface DeviationContentResponse extends GeneralError {
     css_fronts?: Array<string>;
 }
 
-export interface DeviantionMetadataResponse extends GeneralError {
+export interface DeviationnMetadataResponse extends GeneralError {
     description: string;
     tags: Array<DeviationTag>;
     submission: {

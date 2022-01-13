@@ -89,7 +89,7 @@ class Deviant {
 
             return Promise.resolve(response);
         } catch (ex) {
-            return Promise.reject();
+            return Promise.reject(ex?.message);
         }
     }
 }

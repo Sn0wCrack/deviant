@@ -21,7 +21,7 @@ class Deviantions {
 
     async content(deviationId: string, withSession: boolean = false): Promise<DeviationContentResponse> {
         const data = {
-            deviantionid: deviationId,
+            deviationid: deviationId,
             with_session: withSession,
         };
 
@@ -30,9 +30,9 @@ class Deviantions {
         return Promise.resolve(response);
     }
 
-    async metadata(deviationIds: Array<string>, options?: MetadataOptions): Promise<DeviantionMetadataResponse> {
+    async metadata(deviationIds: Array<string>, options?: MetadataOptions): Promise<DeviationnMetadataResponse> {
         const data = {
-            deviantionids: deviationIds,
+            deviationids: deviationIds,
             ext_submission: options?.submission ?? false,
             ext_camera: options?.submission ?? false,
             ext_stats: options?.stats ?? false,
@@ -41,7 +41,7 @@ class Deviantions {
             with_session: options?.withSession ??  false,
         }
         
-        const response = await this.api?.send(`deviation/metedata`, data) as DeviantionMetadataResponse;
+        const response = await this.api?.send(`deviation/metedata`, data) as DeviationnMetadataResponse;
 
         return Promise.resolve(response);
     }
