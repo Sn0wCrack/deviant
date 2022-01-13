@@ -1,6 +1,6 @@
 import got from "got/dist/source";
 import Grant from "./Grant";
-import { AuthorizationSuccess, PlaceboResponse } from "../types/Responses";
+import { AuthorizationSuccess, PlaceboResponse } from "./Responses";
 import Deviantions from "./Requests/Deviations";
 
 const BASE_URL = 'https://www.deviantart.com/api/v1/oauth2';
@@ -50,7 +50,7 @@ class Deviant {
             );
 
             this.grant = grant;
-        } catch (ex: any) {
+        } catch (ex) {
             return Promise.reject();
         }
 
@@ -84,7 +84,7 @@ class Deviant {
             .json<Record<string, any>>();
 
             return Promise.resolve(response);
-        } catch (ex: any) {
+        } catch (ex) {
             return Promise.reject();
         }
     }

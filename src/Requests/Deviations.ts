@@ -1,5 +1,5 @@
 import Deviant from "..";
-import { DeviantionResponse } from "../../types/Responses";
+import { DeviantionResponse } from "../Responses";
 
 class Deviantions {
 
