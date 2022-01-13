@@ -45,6 +45,35 @@ export interface DeviationImage {
     transparency: boolean;
 }
 
+export interface DeviationContentResponse extends GeneralError {
+    html?: string;
+    css?: string;
+    css_fronts?: Array<string>;
+}
+
+export interface DeviantionMetadataResponse extends GeneralError {
+    description: string;
+    tags: Array<DeviationTag>;
+    submission: {
+        creation_string: string;
+    }
+    stats: {
+        views: number;
+        views_today?: number;
+        favourites: number;
+        comments: number;
+        downloads: number;
+        downloads_today?: number;
+    };
+    
+}
+
+export interface DeviationTag {
+    tag_name: string;
+    sponsored: boolean;
+    sponsor: string;
+}
+
 export interface GeneralError {
     error?: string;
     error_description?: string;
