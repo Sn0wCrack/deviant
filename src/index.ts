@@ -40,7 +40,7 @@ class Deviant {
 
 
             if (authorizeResponse?.status !== 'success') {
-                Promise.reject();
+                Promise.reject(authorizeResponse?.error_description);
             }
 
             const grant = new Grant(
@@ -51,7 +51,7 @@ class Deviant {
 
             this.grant = grant;
         } catch (ex) {
-            return Promise.reject();
+            return Promise.reject(ex?.message);
         }
 
         return Promise.resolve();
@@ -69,7 +69,7 @@ class Deviant {
 
     async send(endpoint: string, data?: Record<string, any>): Promise<Record<string, any>> {
         if (!this.grant) {
-            return Promise.reject();
+            return Promise.reject('Authorization has not yet occured');
         }
 
         if (this.grant.isExpired()) {
