@@ -72,6 +72,10 @@ class Deviant {
             return Promise.reject();
         }
 
+        if (this.grant.isExpired()) {
+            await this.authorize();
+        }
+
         try {
             const response = await got.post(`${BASE_URL}/${endpoint}`, {
                 headers: {
