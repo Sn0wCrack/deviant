@@ -1,5 +1,5 @@
 import Deviant from "..";
-import { DeviantionMetadataResponse, DeviantionResponse, DeviationContentResponse } from "../Responses";
+import { DeviationMetadataResponse, DeviantionResponse, DeviationContentResponse } from "../Responses";
 
 class Deviantions {
 
@@ -30,7 +30,7 @@ class Deviantions {
         return Promise.resolve(response);
     }
 
-    async metadata(deviationIds: Array<string>, options?: MetadataOptions): Promise<DeviationnMetadataResponse> {
+    async metadata(deviationIds: Array<string>, options?: MetadataOptions): Promise<DeviationMetadataResponse> {
         const data = {
             deviationids: deviationIds,
             ext_submission: options?.submission ?? false,
@@ -41,7 +41,7 @@ class Deviantions {
             with_session: options?.withSession ??  false,
         }
         
-        const response = await this.api?.send(`deviation/metedata`, data) as DeviationnMetadataResponse;
+        const response = await this.api?.send(`deviation/metedata`, data) as DeviationMetadataResponse;
 
         return Promise.resolve(response);
     }
