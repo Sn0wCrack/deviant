@@ -9,8 +9,12 @@ class Deviantions {
         this.api = api;
     }
 
-    async get(id: string): Promise<DeviantionResponse> {
-        const response = await this.api?.send(`deviation/${id}`) as DeviantionResponse;
+    async get(deviationId: string, withSession: boolean = false): Promise<DeviantionResponse> {
+        const data = {
+            with_session: withSession,
+        };
+
+        const response = await this.api?.send(`deviation/${deviationId}`, data) as DeviantionResponse;
 
         return Promise.resolve(response);
     }
